@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { ClientTable } from 'vue-tables-2'
 import router from '@router'
 import store from '@state/store'
 import App from './app.vue'
@@ -14,6 +15,12 @@ if (process.env.VUE_APP_TEST === 'e2e') {
   // Ensure tests fail when Vue emits an error.
   Vue.config.errorHandler = window.Cypress.cy.onUncaughtException
 }
+
+const options = {}
+const useVuex = false
+const theme = 'bootstrap3'
+const template = 'default'
+Vue.use(ClientTable, options, useVuex, theme, template)
 
 const app = new Vue({
   router,
